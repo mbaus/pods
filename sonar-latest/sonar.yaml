@@ -27,7 +27,7 @@ spec:
           - name: sonar.jdbc.username
             value: "postgres"
           - name: sonar.jdbc.url
-            value: "jdbc:postgresql://10.96.227.213:5432/sonarqube"
+            value: "jdbc:postgresql://10.102.39.64:5432/sonarqube"
           - name: sonar.jdbc.password
             value: "root"
         ports:
@@ -45,20 +45,24 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-            claimName: data
+          claimName: pvc-data
       - name: extensions
         persistentVolumeClaim:
-            claimName: extensions
+          claimName: pvc-extensions
       - name: conf
         persistentVolumeClaim:
-            claimName: conf
+          claimName: pvc-conf
       - name: logs
         persistentVolumeClaim:
-            claimName: logs
-       
-       
-        
-    
+          claimName: pvc-logs
+      initContainers:
+        - name: sysctl
+          image: busybox
+          imagePullPolicy: IfNotPresent
+          command: ['sysctl', '-w', 'vm.max_map_count=262144']
+          securityContext:
+            privileged: true
+
 ---
 apiVersion: v1
 kind: Service

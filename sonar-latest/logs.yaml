@@ -1,23 +1,25 @@
+kind: PersistentVolume
 apiVersion: v1
-kind: PersistentVolumeClaim
 metadata:
   name: logs
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath: 
+    path: "/data/sonar/logs"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-logs
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: ""
   resources:
     requests:
       storage: 10Gi
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: logs
-spec:
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-      storage: 10Gi
-  hostPath: 
-    path: "/opt/sonar/logs/"
-    type: DirectoryOrCreate
