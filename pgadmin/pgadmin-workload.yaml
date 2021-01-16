@@ -13,12 +13,11 @@ spec:
         app: pgadmin
     spec:
       containers:
-
         - name: pgadmin4
           image: dpage/pgadmin4
           env:
            - name: PGADMIN_DEFAULT_EMAIL
-             value: "admin"
+             value: "admin@dacomb.loc"
            - name: PGADMIN_DEFAULT_PASSWORD
              value: "admin"
            - name: PGADMIN_PORT
