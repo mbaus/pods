@@ -1,0 +1,6 @@
+{
+    "cpus": 8,
+    "disk-size": "307200",
+    "memory": "32768",
+    "vm-driver": "parallels"
+}

@@ -1,0 +1,34 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: pd-ssd
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-ssd
+
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: conf
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 3Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath: 
+    path: "/data/sonar/conf"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-conf
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: ""
+  resources:
+    requests:
+      storage: 3Gi
