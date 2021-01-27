@@ -1,3 +1,9 @@
+# Links
+
+# Minikube Docs
+https://minikube.sigs.k8s.io/docs/
+
+
 https://kubernetes.io/docs/concepts/services-networking/ingress/
 
 https://vocon-it.com/2018/12/31/kubernetes-6-https-applications-via-ingress-controller-on-minikube/
@@ -22,7 +28,6 @@ https://kubernetes.io/de/docs/tutorials/hello-minikube/
 
  
 
-https://minikube.sigs.k8s.io/docs/
 
  
 
