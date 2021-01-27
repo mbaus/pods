@@ -2,10 +2,10 @@
 global:
   edition: ce
   hosts:
-    domain: ${DOMAIN}
+    domain: hello-world.info
     https: true
     gitlab: {}
-    externalIP: ${INGRESS_IP}
+    externalIP: 10.211.55.153
     ssh: ~
 
   ## doc/charts/globals.md#configure-ingress-settings
@@ -20,7 +20,7 @@ global:
     password:
       secret: gitlab-pg
       key: password
-    host: ${DB_PRIVATE_IP}
+    host: 10.98.105.64
     port: 5432
     username: gitlab
     database: gitlabhq_production
@@ -28,7 +28,7 @@ global:
   redis:
     password:
       enabled: false
-    host: ${REDIS_PRIVATE_IP}
+    host: 10.110.30.163
 
   ## doc/charts/globals.md#configure-minio-settings
   minio:

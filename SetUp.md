@@ -88,7 +88,7 @@ cd ../zipkin
 kubectl apply -f .\n
 ```
 
-
+# 
 
 minikube addons enable helm-tiller
 minikube addons enable ingress

@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis5
+spec:
+  selector:
+    matchLabels:
+      app: redis5
+  replicas: 3 
+  template: 
+    metadata:
+      labels:
+        app: redis5
+    spec:
+      containers:
+      - name: redis5
+        image: redislabs/redis:5.0.0-31
+        ports:
+        - containerPort: 8001
+        - containerPort: 8443
+        - containerPort: 9443
+        securityContext:
+          capabilities:
+            add:
+            - SYS_RESOURCE
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis5
+  labels:
+    app: redis5
+spec:
+  ports:
+  - port: 8001
+    targetPort: 8001
+    protocol: TCP
+    name: sentinal
+  - port: 8443
+    targetPort: 8443
+    protocol: TCP
+    name: ui
+  - port: 9443
+    targetPort: 9443
+    protocol: TCP
+    name: api
+  selector:
+    app: redis5
