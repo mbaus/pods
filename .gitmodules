@@ -1,3 +1,6 @@
 [submodule "samples/minikube-gitlab-tutorial"]
 	path = samples/minikube-gitlab-tutorial
 	url = https://github.com/zzOzz/minikube-gitlab-tutorial.git
+[submodule "samples/kubernetes-json-schema"]
+	path = samples/kubernetes-json-schema
+	url = https://github.com/instrumenta/kubernetes-json-schema.git
